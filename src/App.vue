@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <HeadgearDemo />
+    <Interval />
   </div>
 </template>
 
 <script>
-import HeadgearDemo from './demos/headgear/HeadgearDemo.vue';
+// import HeadgearDemo from './demos/headgear/HeadgearDemo.vue';
+import Interval from './demos/Interval.vue';
 
 export default {
   name: 'app',
   components: {
-    HeadgearDemo,
+    Interval,
   }
 }
 </script>

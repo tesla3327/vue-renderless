@@ -1,4 +1,6 @@
-# headgear
+# vue-renderless
+
+Placeholder until I get this cleaned up more and think of a better name.
 
 ## Project setup
 ```

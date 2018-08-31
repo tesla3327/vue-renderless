@@ -17,7 +17,6 @@ export default {
   },
 
   created() {
-    console.log('Event created');
     this.target = this.global
       ? window
       : this.$parent.$el;

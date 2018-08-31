@@ -4,9 +4,11 @@ import { renderToScopedSlot } from '../../util.js';
 export default {
   name: 'Value',
 
+  props: ['initialValue'],
+
   data() {
     return {
-      value: '',
+      value: this.initialValue || '',
     };
   },
 
@@ -21,4 +23,3 @@ export default {
   }
 }
 </script>
-
