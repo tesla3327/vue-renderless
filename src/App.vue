@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Interval />
+    <BeforeDestroy />
   </div>
 </template>
 
 <script>
 // import HeadgearDemo from './demos/headgear/HeadgearDemo.vue';
-import Interval from './demos/Interval.vue';
+import BeforeDestroy from './demos/component/BeforeDestroy.vue';
 
 export default {
   name: 'app',
   components: {
-    Interval,
+    BeforeDestroy,
   }
 }
 </script>
