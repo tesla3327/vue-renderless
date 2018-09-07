@@ -13,13 +13,13 @@ export default {
 
   data() {
     return {
-      key: 0,
+      ticks: 0,
     };
   },
 
   mounted() {
     this.timerId = setInterval(() => {
-      this.key += 1;
+      this.ticks += 1;
     }, this.delay);
   },
 
@@ -40,7 +40,7 @@ export default {
       'start',
       'stop',
       // Must be registered as a dependency of the render fn
-      'key',
+      'ticks',
     ]);
   }
 }

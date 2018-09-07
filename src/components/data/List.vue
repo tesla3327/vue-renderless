@@ -29,6 +29,10 @@ export default {
     remove(index) {
       this.values.splice(index, 1);
     },
+
+    update(index, val) {
+      this.values.splice(index, 1, val);
+    }
   },
 
   render() {
@@ -36,6 +40,7 @@ export default {
       'add',
       'clear',
       'remove',
+      'update',
       'values',
     ]);
   }

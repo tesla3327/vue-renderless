@@ -1,0 +1,67 @@
+<template>
+  <List>
+    <div slot-scope="{ add, clear, remove, update, values }">
+      <Watch
+        :value="values"
+        @change="() => {
+          document.title = `${values.length} Todos`;
+        }"
+      />
+      <Log
+        :value="values"
+        :createLog="(val) => val.length > 0
+          ? `Most recent todo: ${val[val.length - 1].text}`
+          : 'No todos'"
+      />
+
+      <h1>Todo</h1>
+
+      <Interval :delay="1000">
+        <div slot-scope="{ start, stop, ticks }">
+          Time on page: {{ ticks }}
+        </div>
+      </Interval>
+
+      <AddTodo @add="(text) => add({ text, completed: false })" />
+    
+      <TodoList
+        :todos="values"
+        @remove="(idx) => remove(idx)"
+        @toggle-complete="(idx) => update(idx, {
+          text: values[idx].text,
+          completed: !values[idx].completed,
+        })"
+      />
+
+      <button @click="clear()">Clear All</button>
+    </div>
+  </List>
+</template>
+
+<script>
+import List from '../../components/data/List.vue';
+import Watch from '../../components/component/Watch.vue';
+import Log from '../../components/Log.vue';
+import Interval from '../../components/Interval.vue';
+import AddTodo from './AddTodo.vue';
+import TodoList from './TodoList.vue';
+
+export default {
+  name: 'TodoDemo',
+  
+  components: {
+    Log,
+    AddTodo,
+    TodoList,
+    List,
+    Interval,
+    Watch,
+  },
+
+  computed: {
+    document() {
+      return document;
+    },
+  },
+}
+</script>

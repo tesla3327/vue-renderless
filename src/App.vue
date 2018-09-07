@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <BeforeDestroy />
+    <Todo />
   </div>
 </template>
 
 <script>
 // import HeadgearDemo from './demos/headgear/HeadgearDemo.vue';
-import BeforeDestroy from './demos/component/BeforeDestroy.vue';
+import Todo from './demos/TodoBroken/Todo.vue';
 
 export default {
   name: 'app',
   components: {
-    BeforeDestroy,
+    Todo,
   }
 }
 </script>

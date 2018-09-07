@@ -10,7 +10,6 @@ export default {
       required: true,
     },
     watchProp: {},
-
   },
 
   computed: {
