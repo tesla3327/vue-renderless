@@ -1,7 +1,17 @@
 <template>
   <Renderless>
-    <Mounted @mounted="log" />
-    <Watch :value="value" @change="() => log('crazy')"/>
+    <Value :initial-value="(val) => {
+      if (createLog) {
+        log(createLog(val));
+      } else {
+        log(val);
+      }
+    }">
+      <div slot-scope="{ value: logFn }">
+        <Mounted @mounted="() => logFn(value)" />
+        <Watch :value="value" @change="() => logFn(value)"/>
+      </div>
+    </Value>
   </Renderless>
 </template>
 
@@ -9,6 +19,7 @@
 import Renderless from './Renderless.vue';
 import { Mounted } from './component/Lifecycle.js';
 import Watch from './component/Watch.vue';
+import Value from './data/Value.vue';
 
 export default {
   name: 'Log',
@@ -17,6 +28,7 @@ export default {
     Renderless,
     Mounted,
     Watch,
+    Value,
   },
 
   props: {
@@ -29,28 +41,10 @@ export default {
     }
   },
 
-  // watch: {
-  //   value: {
-  //     handler() {
-  //       this.log(this.value);
-  //     }
-  //   }
-  // },
-
-  methods: {
-    log(val) {
-      return console.log(this.value);
+  computed: {
+    log() {
+      return console.log;
     }
-  },
-
-  // methods: {
-    // log() {
-    //   if (this.createLog) {
-    //     console.log(this.createLog(this.value));
-    //   } else {
-    //     console.log(this.value);
-    //   }
-    // }
-  // },
+  }
 }
 </script>
