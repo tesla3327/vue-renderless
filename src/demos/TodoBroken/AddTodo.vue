@@ -1,5 +1,5 @@
 <template>
-  <Value>
+  <State :initial-value="''">
     <template slot-scope="{ setValue, value }">
       <form
         @submit.prevent="() => {
@@ -14,17 +14,17 @@
         <button type="submit">Add</button>
       </form>
     </template>
-  </Value>
+  </State>
 </template>
 
 <script>
-import Value from '../../components/data/Value.vue';
+import State from '../../components/data/State.vue';
 
 export default {
   name: 'AddTodo',
 
   components: {
-    Value,
+    State,
   }
 }
 </script>

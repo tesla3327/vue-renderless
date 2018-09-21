@@ -2,7 +2,7 @@
 import { renderToScopedSlot } from '../../util.js';
 
 export default {
-  name: 'Value',
+  name: 'State',
 
   props: ['initialValue'],
 

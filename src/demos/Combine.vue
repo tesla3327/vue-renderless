@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Value from '../components/data/Value.vue';
+import State from '../components/data/State.vue';
 import List from '../components/data/List.vue';
 import Combine from '../components/Combine.vue';
 
@@ -33,7 +33,7 @@ export default {
 
   data() {
     return {
-      components: [Value, List]
+      components: [State, List]
     }
   }
 }

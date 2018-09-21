@@ -1,5 +1,5 @@
 <template>
-  <Value>
+  <State>
     <template slot-scope="{ setValue, value }">
       <List>
         <div slot-scope="{ add, clear, remove, values }">
@@ -20,18 +20,18 @@
         </div>
       </List>
     </template>
-  </Value>
+  </State>
 </template>
 
 <script>
 import List from '../../components/data/List.vue';
-import Value from '../../components/data/Value.vue';
+import State from '../../components/data/State.vue';
 import Watch from '../../components/component/Watch.vue';
 
 export default {
   components: {
     List,
-    Value,
+    State,
     Watch,
   },
 

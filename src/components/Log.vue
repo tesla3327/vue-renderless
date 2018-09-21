@@ -1,6 +1,6 @@
 <template>
   <Renderless>
-    <Value :initial-value="(val) => {
+    <State :initial-value="(val) => {
       if (createLog) {
         log(createLog(val));
       } else {
@@ -11,7 +11,7 @@
         <Mounted @mounted="() => logFn(value)" />
         <Watch :value="value" @change="() => logFn(value)"/>
       </div>
-    </Value>
+    </State>
   </Renderless>
 </template>
 
@@ -19,7 +19,7 @@
 import Renderless from './Renderless.vue';
 import { Mounted } from './component/Lifecycle.js';
 import Watch from './component/Watch.vue';
-import Value from './data/Value.vue';
+import State from './data/State.vue';
 
 export default {
   name: 'Log',
@@ -28,7 +28,7 @@ export default {
     Renderless,
     Mounted,
     Watch,
-    Value,
+    State,
   },
 
   props: {

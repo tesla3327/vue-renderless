@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Value from '../../components/data/Value.vue';
+import State from '../../components/data/State.vue';
 import Headgear from '../../components/VueHeadgear.vue'
 import Combine from '../../components/Combine.vue';
 
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       input: '',
-      components: [Value, Headgear]
+      components: [State, Headgear]
     };
   },
 }

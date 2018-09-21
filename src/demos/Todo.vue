@@ -15,7 +15,7 @@
         </div>
       </Interval>
 
-      <Value>
+      <State>
         <template slot-scope="{ setValue, value }">
           <form
             @submit.prevent="() => {
@@ -33,7 +33,7 @@
             <button type="submit">Add</button>
           </form>
         </template>
-      </Value>
+      </State>
       
       <ul>
         <li
@@ -60,7 +60,7 @@
 
 <script>
 import List from '../components/data/List.vue';
-import Value from '../components/data/Value.vue';
+import State from '../components/data/State.vue';
 import Watch from '../components/component/Watch.vue';
 import Interval from '../components/Interval.vue';
 
@@ -69,7 +69,7 @@ export default {
   
   components: {
     List,
-    Value,
+    State,
     Interval,
     Watch,
   },

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Value from '../components/data/Value.vue';
+import State from '../components/data/State.vue';
 import List from '../components/data/List.vue';
 import Interval from '../components/Interval.vue';
 import Mounted from './Mounted.vue';
@@ -21,7 +21,7 @@ export default {
 
   data() {
     return {
-      components: [Value, List]
+      components: [State, List]
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <Value>
+  <State>
     <template slot-scope="{ setValue, value }">
       <Set>
         <div slot-scope="{ add, clear, remove, values, size }">
@@ -19,17 +19,17 @@
         </div>
       </Set>
     </template>
-  </Value>
+  </State>
 </template>
 
 <script>
 import Set from '../../components/data/Set.vue';
-import Value from '../../components/data/Value.vue';
+import State from '../../components/data/State.vue';
 
 export default {
   components: {
     Set,
-    Value,
+    State,
   }
 }
 </script>
