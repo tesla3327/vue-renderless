@@ -1,16 +1,22 @@
 <template>
   <Renderless :provide="provide" >
-    <Event
-      event="popstate"
-      global
-      @fired="handlePopstate"
-    />
+    <template slot-scope="{ provide }">
+      <Event
+        event="popstate"
+        global
+        @fired="() => {
+          provide({ queryParams: 'test' });
+          handlePopstate();
+        }"
+      />
+    </template>
   </Renderless>
 </template>
 
 <script>
 import Renderless from './Renderless.vue';
 import Event from './Event.vue';
+import Log from './Log.vue';
 
 export default {
   name: 'VueHeadgear',
@@ -18,6 +24,7 @@ export default {
   components: {
     Renderless,
     Event,
+    Log,
   },
 
   data() {
