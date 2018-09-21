@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// import HeadgearDemo from './demos/headgear/HeadgearDemo.vue';
 import Todo from './demos/TodoBroken/Todo.vue';
 
 export default {

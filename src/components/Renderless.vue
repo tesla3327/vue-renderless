@@ -64,15 +64,8 @@ export default {
     }
   },
 
-  render() {
+  render(h) {
     this.flushQueuedChanges();
-
-    // Hijack the parent nodes scoped slots to keep things clean
-    const parentNode = this.$parent.$scopedSlots.default({
-      ...this.provideData,
-    });
-
-    const parentSlot = resolveNodeArray(parentNode);
 
     // Get the renderless component's children. First we try
     // to access the scoped slot if there is one, falling back
@@ -81,22 +74,45 @@ export default {
       ? this.$scopedSlots.default({ provide: this.provideFunc })
       : this.$slots.default;
 
-    // const children = this.$scopedSlots.default({ provide: this.provideFunc });
+    // Hijack the parent nodes scoped slots to keep things clean
+    if (this.$parent.$scopedSlots.default) {
+      const parentNode = this.$parent.$scopedSlots.default({
+        ...this.provideData,
+      });
 
-    // Move any children of the renderless into the scoped slot
-    if (Array.isArray(parentSlot.children)) {
-      parentSlot.children = [
-        ...children,
-        ...parentSlot.children,
-      ];
-    } else if (parentSlot.children) {
-      parentSlot.children = [
-        ...children,
-        parentSlot.children,
-      ];
+      const parentSlot = resolveNodeArray(parentNode);
+
+      // Move any children of the renderless into the scoped slot
+      if (Array.isArray(parentSlot.children)) {
+        parentSlot.children = [
+          ...children,
+          ...parentSlot.children,
+        ];
+      } else if (parentSlot.children) {
+        parentSlot.children = [
+          ...children,
+          parentSlot.children,
+        ];
+      }
+
+      return parentSlot;
+    } else {
+      // We often don't even use a scoped slot of the parent component
+      if (Array.isArray(children)) {
+        // Wrap in a hidden div
+        return h(
+          'div',
+          {
+            attrs: { hidden: true },
+          },
+          [
+            ...children,
+          ]
+        );
+      } else {
+        return children;
+      }
     }
-
-    return parentSlot;
   }
 }
 </script>

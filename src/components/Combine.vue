@@ -7,6 +7,10 @@ export default {
   components: { Renderless },
   
   props: {
+    /**
+     * Array of components that we want to combine into
+     * a single renderless component.
+     */
     components: {
       type: Array,
       required: true,
@@ -24,6 +28,15 @@ export default {
     const resolveScopedSlots = this._u;
     this.resolveSlot = this._t;
 
+    /* 
+     * Took me awhile to figure this out recursively. I
+     * basically just looked at the compiled output of
+     * different render functions and reverse engineered
+     * how Vue compiles them at runtime.
+     *
+     * This is likely very fragile and will break if Vue's
+     * internals change in the future.
+     */
     const buildResult = (components, slotValue = []) => {
       return h(components[0], {
         scopedSlots: resolveScopedSlots([
