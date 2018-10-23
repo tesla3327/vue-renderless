@@ -3,7 +3,7 @@
     <template slot-scope="{ setValue, value }">
       <List>
         <div slot-scope="{ add, clear, remove, values }">
-          <h1>List Demo</h1>
+          <h1>Computed Demo</h1>
           <input
             :value="value"
             @input="setValue($event.target.value)"
@@ -16,6 +16,15 @@
               {{ val }} - <span @click="remove(index)">x</span>
             </li>
           </ul>
+
+          <h2>Reversed List</h2>
+          <Computed :compute="() => {
+            return [...values].reverse();
+          }">
+            <p slot-scope="{ computedValue }">
+              {{ computedValue }}
+            </p>
+          </Computed>
         </div>
       </List>
     </template>
@@ -23,13 +32,21 @@
 </template>
 
 <script>
-import List from '../../components/data/List.vue';
-import State from '../../components/data/State.vue';
+import List from '../../../src/components/data/List.vue';
+import State from '../../../src/components/data/State.vue';
+import Computed from '../../../src/components/component/Computed.vue';
 
 export default {
   components: {
     List,
     State,
+    Computed,
+  },
+
+  methods: {
+    valuesChanged() {
+      console.log('Values have changed!');
+    }
   }
 }
 </script>

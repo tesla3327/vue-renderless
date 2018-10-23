@@ -4,22 +4,19 @@
       <Event
         event="popstate"
         global
-        @fired="() => {
-          provide({ queryParams: 'test' });
-          handlePopstate();
-        }"
+        @fired="handlePopstate"
       />
     </template>
   </Renderless>
 </template>
 
 <script>
-import Renderless from './Renderless.vue';
-import Event from './Event.vue';
-import Log from './Log.vue';
+import Renderless from '../../../src/components/Renderless.vue';
+import Event from '../../../src/components/Event.vue';
+import Log from '../../../src/components/Log.vue';
 
 export default {
-  name: 'VueHeadgear',
+  name: 'QueryParams',
 
   components: {
     Renderless,

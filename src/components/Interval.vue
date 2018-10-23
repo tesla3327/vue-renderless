@@ -18,20 +18,22 @@ export default {
   },
 
   mounted() {
-    this.timerId = setInterval(() => {
-      this.ticks += 1;
-    }, this.delay);
+    this.start();
   },
 
   beforeDestroy() {
-    clearInterval(this.timerId);
+    this.stop();
   },
 
   methods: {
     start() {
+      this.timerId = setInterval(() => {
+        this.ticks += 1;
+      }, this.delay);
     },
 
     stop() {
+      clearInterval(this.timerId);
     }
   },
 
@@ -39,7 +41,6 @@ export default {
     return renderToScopedSlot(this, [
       'start',
       'stop',
-      // Must be registered as a dependency of the render fn
       'ticks',
     ]);
   }

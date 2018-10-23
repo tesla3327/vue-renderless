@@ -59,10 +59,10 @@
 </template>
 
 <script>
-import List from '../components/data/List.vue';
-import State from '../components/data/State.vue';
-import Watch from '../components/component/Watch.vue';
-import Interval from '../components/Interval.vue';
+import List from '../../src/components/data/List.vue';
+import State from '../../src/components/data/State.vue';
+import Watch from '../../src/components/component/Watch.vue';
+import Interval from '../../src/components/Interval.vue';
 
 export default {
   name: 'TodoDemo',

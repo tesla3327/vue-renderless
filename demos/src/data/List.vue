@@ -3,7 +3,7 @@
     <template slot-scope="{ setValue, value }">
       <List>
         <div slot-scope="{ add, clear, remove, values }">
-          <h1>Watch Demo</h1>
+          <h1>List Demo</h1>
           <input
             :value="value"
             @input="setValue($event.target.value)"
@@ -16,7 +16,6 @@
               {{ val }} - <span @click="remove(index)">x</span>
             </li>
           </ul>
-          <Watch :value="values" @change="valuesChanged" />
         </div>
       </List>
     </template>
@@ -24,21 +23,13 @@
 </template>
 
 <script>
-import List from '../../components/data/List.vue';
-import State from '../../components/data/State.vue';
-import Watch from '../../components/component/Watch.vue';
+import List from '../../../src/components/data/List.vue';
+import State from '../../../src/components/data/State.vue';
 
 export default {
   components: {
     List,
     State,
-    Watch,
-  },
-
-  methods: {
-    valuesChanged() {
-      console.log('Values have changed!');
-    }
   }
 }
 </script>

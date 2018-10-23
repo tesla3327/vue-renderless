@@ -8,15 +8,13 @@
 </template>
 
 <script>
-import State from '../components/data/State.vue';
-import List from '../components/data/List.vue';
-import Interval from '../components/Interval.vue';
-import Mounted from './Mounted.vue';
+import State from '../../src/components/data/State.vue';
+import List from '../../src/components/data/List.vue';
+import Interval from '../../src/components/Interval.vue';
 
 export default {
   components: {
     Interval,
-    Mounted,
   },
 
   data() {

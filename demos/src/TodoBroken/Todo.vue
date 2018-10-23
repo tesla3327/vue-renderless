@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import List from '../../components/data/List.vue';
-import Watch from '../../components/component/Watch.vue';
-import Log from '../../components/Log.vue';
-import Interval from '../../components/Interval.vue';
+import List from '../../../src/components/data/List.vue';
+import Watch from '../../../src/components/component/Watch.vue';
+import Log from '../../../src/components/Log.vue';
+import Interval from '../../../src/components/Interval.vue';
 import AddTodo from './AddTodo.vue';
 import TodoList from './TodoList.vue';
 

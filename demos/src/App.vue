@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Headgear />
+    <Watch />
   </div>
 </template>
 
 <script>
-import Headgear from './demos/headgear/HeadgearDemo.vue';
+import Watch from './component/Watch.vue';
 
 export default {
   name: 'app',
   components: {
-    Headgear,
+    Watch,
   }
 }
 </script>
@@ -21,9 +21,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  font-size: 16px;
   margin-top: 60px;
-  display: flex;
-  justify-content: center;
 }
 </style>

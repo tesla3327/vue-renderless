@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import Set from '../../components/data/Set.vue';
-import State from '../../components/data/State.vue';
+import Set from '../../../src/components/data/Set.vue';
+import State from '../../../src/components/data/State.vue';
 
 export default {
   components: {

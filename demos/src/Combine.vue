@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import State from '../components/data/State.vue';
-import List from '../components/data/List.vue';
-import Combine from '../components/Combine.vue';
+import State from '../../src/components/data/State.vue';
+import List from '../../src/components/data/List.vue';
+import Combine from '../../src/components/Combine.vue';
 
 export default {
   components: {

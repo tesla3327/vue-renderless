@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import State from '../../components/data/State.vue';
+import State from '../../../src/components/data/State.vue';
 
 export default {
   name: 'AddTodo',

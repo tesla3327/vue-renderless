@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import List from '../../components/data/List.vue';
-import State from '../../components/data/State.vue';
-import { Mounted } from '../../components/component/Lifecycle.js';
+import List from '../../../src/components/data/List.vue';
+import State from '../../../src/components/data/State.vue';
+import { Mounted } from '../../../src/components/component/Lifecycle.js';
 
 export default {
   components: {

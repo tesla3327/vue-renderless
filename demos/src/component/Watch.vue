@@ -3,9 +3,7 @@
     <template slot-scope="{ setValue, value }">
       <List>
         <div slot-scope="{ add, clear, remove, values }">
-          <h1>BeforeDestroy Demo</h1>
-          <p>The <pre>BeforeDestroy</pre> lifecycle component has no access to context of destroyed component.</p>
-          <p>But it has access to outer context, as long as that component still exists.</p>
+          <h1>Watch Demo</h1>
           <input
             :value="value"
             @input="setValue($event.target.value)"
@@ -16,9 +14,9 @@
           <ul>
             <li v-for="(val, index) in values" :key="index">
               {{ val }} - <span @click="remove(index)">x</span>
-              <BeforeDestroy @before-destroy="log(values)" />
             </li>
           </ul>
+          <Watch :value="values" @change="valuesChanged" />
         </div>
       </List>
     </template>
@@ -26,20 +24,20 @@
 </template>
 
 <script>
-import List from '../../components/data/List.vue';
-import State from '../../components/data/State.vue';
-import { BeforeDestroy } from '../../components/component/Lifecycle.js';
+import List from '../../../src/components/data/List.vue';
+import State from '../../../src/components/data/State.vue';
+import Watch from '../../../src/components/component/Watch.vue';
 
 export default {
   components: {
     List,
     State,
-    BeforeDestroy,
+    Watch,
   },
 
   methods: {
-    log(msg) {
-      console.log(msg);
+    valuesChanged() {
+      console.log('Values have changed!');
     }
   }
 }
