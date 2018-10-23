@@ -34,8 +34,8 @@ export default {
      * different render functions and reverse engineered
      * how Vue compiles them at runtime.
      *
-     * This is likely very fragile and will break if Vue's
-     * internals change in the future.
+     * This will most likely break when VNode structure is
+     * changed with Vue 3.0
      */
     const buildResult = (components, slotValue = []) => {
       return h(components[0], {

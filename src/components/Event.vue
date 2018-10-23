@@ -17,6 +17,7 @@ export default {
   },
 
   created() {
+    // Attach to window if global, or to the parent
     this.target = this.global
       ? window
       : this.$parent.$el;

@@ -1,5 +1,5 @@
 <script>
-import { resolveNodeArray } from '../util.js'; 
+import { resolveNodeArray, concatValueOrArray } from '../util.js';
 
 // This component allows us to compose renderless components declaratively
 // using other components
@@ -61,6 +61,20 @@ export default {
         this.watchQueuedChanges = undefined;
         this.funcQueuedChanges = undefined;
       }
+    },
+
+    renderToParentScopedSlot(children) {
+      const parentNode = this.$parent.$scopedSlots.default({
+        ...this.provideData,
+      });
+
+      const parentSlot = resolveNodeArray(parentNode);
+
+      // Take any children of this component and make them children of the
+      // scoped slot.
+      parentSlot.children = concatValueOrArray(children, parentSlot.children);
+
+      return parentSlot;
     }
   },
 
@@ -76,26 +90,7 @@ export default {
 
     // Hijack the parent nodes scoped slots to keep things clean
     if (this.$parent.$scopedSlots.default) {
-      const parentNode = this.$parent.$scopedSlots.default({
-        ...this.provideData,
-      });
-
-      const parentSlot = resolveNodeArray(parentNode);
-
-      // Move any children of the renderless into the scoped slot
-      if (Array.isArray(parentSlot.children)) {
-        parentSlot.children = [
-          ...children,
-          ...parentSlot.children,
-        ];
-      } else if (parentSlot.children) {
-        parentSlot.children = [
-          ...children,
-          parentSlot.children,
-        ];
-      }
-
-      return parentSlot;
+      return this.renderToParentScopedSlot(children);
     } else {
       // We often don't even use a scoped slot of the parent component
       if (Array.isArray(children)) {

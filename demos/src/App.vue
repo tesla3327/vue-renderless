@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Watch />
+    <QueryParams />
   </div>
 </template>
 
 <script>
-import Watch from './component/Watch.vue';
+import QueryParams from './QueryParams/demo.vue';
 
 export default {
   name: 'app',
   components: {
-    Watch,
+    QueryParams,
   }
 }
 </script>
