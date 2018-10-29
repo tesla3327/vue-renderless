@@ -41,10 +41,10 @@ export default {
     }
   },
 
-  computed: {
-    log() {
-      return console.log;
-    }
+  data() {
+    return {
+      log: console.log
+    };
   }
 }
 </script>

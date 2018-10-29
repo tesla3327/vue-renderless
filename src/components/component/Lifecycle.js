@@ -14,7 +14,6 @@ const createLifecycleComponent = (lifecycle, eventName) => ({
   }
 });
 
-export const Created = createLifecycleComponent('created');
 export const Mounted = createLifecycleComponent('mounted');
 export const BeforeDestroy = createLifecycleComponent('beforeDestroy', 'before-destroy');
 export const Updated = createLifecycleComponent('updated');

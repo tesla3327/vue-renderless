@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <QueryParams />
+    <Todo />
   </div>
 </template>
 
 <script>
-import QueryParams from './QueryParams/demo.vue';
+import Todo from './TodoBroken/Todo.vue';
 
 export default {
   name: 'app',
   components: {
-    QueryParams,
+    Todo,
   }
 }
 </script>

@@ -13,17 +13,8 @@
           ? `Most recent todo: ${val[val.length - 1].text}`
           : 'No todos'"
       />
-
       <h1>Todo</h1>
-
-      <Interval :delay="1000">
-        <div slot-scope="{ start, stop, ticks }">
-          Time on page: {{ ticks }}
-        </div>
-      </Interval>
-
       <AddTodo @add="(text) => add({ text, completed: false })" />
-    
       <TodoList
         :todos="values"
         @remove="(idx) => remove(idx)"
@@ -32,7 +23,6 @@
           completed: !values[idx].completed,
         })"
       />
-
       <button @click="clear()">Clear All</button>
     </div>
   </List>
@@ -48,7 +38,7 @@ import TodoList from './TodoList.vue';
 
 export default {
   name: 'TodoDemo',
-  
+
   components: {
     Log,
     AddTodo,
