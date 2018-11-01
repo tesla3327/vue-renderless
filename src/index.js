@@ -1,3 +1,6 @@
+export { renderToScopedSlot as renderToScopedSlot } from './util';
+export { resolveNodeArray as resolveNodeArray } from './util';
+
 export { default as Renderless } from './components/Renderless.vue';
 export { default as Log } from './components/Log.vue';
 export { default as Interval } from './components/Interval.vue';

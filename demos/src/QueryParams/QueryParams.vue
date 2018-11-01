@@ -1,16 +1,17 @@
 <template>
   <Renderless :provide="provide" >
-    <template slot-scope="{ provide }">
-      <Event
-        event="popstate"
-        global
-        @fired="handlePopstate"
-      />
-    </template>
+    <Event
+      event="popstate"
+      global
+      @fired="() => {
+        queryParams = getQueryParams();
+      }"
+    />
   </Renderless>
 </template>
 
 <script>
+import State from '../../../src/components/data/State.vue';
 import Renderless from '../../../src/components/Renderless.vue';
 import Event from '../../../src/components/Event.vue';
 import Log from '../../../src/components/Log.vue';
@@ -22,6 +23,7 @@ export default {
     Renderless,
     Event,
     Log,
+    State,
   },
 
   data() {
@@ -31,7 +33,7 @@ export default {
   },
 
   created() {
-    this.getQueryParams();
+    this.queryParams = this.getQueryParams();
   },
 
   computed: {
@@ -53,7 +55,9 @@ export default {
         .substring(1)
         .split('&');
 
-      this.queryParams = pairs.reduce((params, pair) => {
+      console.log(pairs);
+
+      return pairs.reduce((params, pair) => {
         const [key, value] = pair.split('=');
         return {
           ...params,
